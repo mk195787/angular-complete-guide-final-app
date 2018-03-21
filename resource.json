@@ -1,0 +1,7 @@
+{
+    "css": {
+        "style": [
+        "nodemodules/bootstrap/dist/css/bootstrap.min.css"
+        ]
+    }
+}

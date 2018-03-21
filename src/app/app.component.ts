@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+  pageId = 'recipe';
+
+  onNavigate(pageId: string) {
+    this.pageId = pageId;
+  }
 }

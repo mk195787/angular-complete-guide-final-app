@@ -5,15 +5,15 @@ import { Ingredient } from '../../shared/ingredient.model';
 
 @Injectable()
 export class RecipiesService {
-    recipeSelected = new EventEmitter<Recipe>();
-
     recipies: Recipe[] = [
         new Recipe(
+            0,
             'Name',
             'Desc',
             'http://ultalife.co/blog/wp-content/uploads/2017/10/recipe-icon-150x150.jpeg',
             [new Ingredient('bun', 2), new Ingredient('meat', 1)]),
         new Recipe(
+            1,
             'Another recipe',
             'Another Desc',
             'http://ultalife.co/blog/wp-content/uploads/2017/10/recipe-icon-150x150.jpeg',
@@ -25,6 +25,10 @@ export class RecipiesService {
 
     getRecipies() {
         return this.recipies.slice();
+    }
+
+    getRecipe(id: number): Recipe {
+        return this.recipies[id];
     }
 
     addIngredientsToShoppingList(recipe: Recipe) {

@@ -8,13 +8,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./recipies.component.css']
 })
 export class RecipiesComponent implements OnInit {
-  selected: Recipe;
-
   constructor(private recipiesService: RecipiesService) {}
 
   ngOnInit() {
-    this.recipiesService.recipeSelected.subscribe(
-      recipe => this.selected = recipe
-    );
   }
 }

@@ -9,8 +9,9 @@
 <hr/>
 <div class="row">
     <div class="col-xs-12">
-        <app-recipe-item *ngFor="let r of recipies"
+        <app-recipe-item *ngFor="let r of recipies; let i = index"
                 [recipe]="r"
+                [id]="i"
                 ></app-recipe-item>
     </div>
 </div>

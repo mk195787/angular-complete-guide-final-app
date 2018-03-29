@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { RecipiesService } from './recipies/recipe-list/recipies.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 
@@ -40,6 +40,7 @@ import { RecipeEditComponent } from './recipies/recipe-edit/recipe-edit.componen
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     AppRoutingModule
   ],

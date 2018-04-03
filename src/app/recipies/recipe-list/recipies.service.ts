@@ -28,6 +28,11 @@ export class RecipiesService {
         return this.recipies.slice();
     }
 
+    setRecipies(recipies: Recipe[]) {
+        this.recipies = recipies;
+        this.recipiesChanged.next(this.recipies.slice());
+    }
+
     getRecipe(id: number): Recipe {
         return this.recipies[id];
     }

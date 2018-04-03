@@ -1,3 +1,4 @@
+import { DataStorageService } from './data-storage.service';
 import { AppRoutingModule } from './app-routing.module';
 import { Routes, RouterModule } from '@angular/router';
 import { RecipiesService } from './recipies/recipe-list/recipies.service';
@@ -44,7 +45,7 @@ import { RecipeEditComponent } from './recipies/recipe-edit/recipe-edit.componen
     HttpModule,
     AppRoutingModule
   ],
-  providers: [RecipiesService, ShoppingService],
+  providers: [RecipiesService, ShoppingService, DataStorageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

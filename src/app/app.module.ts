@@ -20,6 +20,9 @@ import { DropdownDirective } from './shared/dropdown.directive';
 import { ShoppingService } from './shopping-list/shopping.service';
 import { RecipiesNothingComponent } from './recipies/recipies-nothing/nothing.component';
 import { RecipeEditComponent } from './recipies/recipe-edit/recipe-edit.component';
+import { SignupComponent } from './auth/signup/signup.component';
+import { SigninComponent } from './auth/signin/signin.component';
+import { AuthService } from './auth/auth.service';
 
 
 
@@ -36,7 +39,9 @@ import { RecipeEditComponent } from './recipies/recipe-edit/recipe-edit.componen
     ShoppingEditComponent,
     DropdownDirective,
     RecipiesNothingComponent,
-    RecipeEditComponent
+    RecipeEditComponent,
+    SignupComponent,
+    SigninComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +50,7 @@ import { RecipeEditComponent } from './recipies/recipe-edit/recipe-edit.componen
     HttpModule,
     AppRoutingModule
   ],
-  providers: [RecipiesService, ShoppingService, DataStorageService],
+  providers: [RecipiesService, ShoppingService, DataStorageService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

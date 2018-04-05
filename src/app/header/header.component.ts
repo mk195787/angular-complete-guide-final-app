@@ -1,3 +1,4 @@
+import { AuthService } from './../auth/auth.service';
 import { Recipe } from './../recipies/recipe-list/recipe.model';
 import { RecipiesService } from './../recipies/recipe-list/recipies.service';
 import { DataStorageService } from './../data-storage.service';
@@ -10,7 +11,8 @@ import { Component, OnInit} from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   constructor(private dataStorageService: DataStorageService,
-              private recipiesService: RecipiesService) { }
+              private recipiesService: RecipiesService,
+              private authService: AuthService) { }
 
   ngOnInit() {
   }
@@ -27,5 +29,11 @@ export class HeaderComponent implements OnInit {
         .subscribe((recipies: Recipe[]) => {
           this.recipiesService.setRecipies(recipies);
         });
+  }
+
+  isAuthenticated() {
+    const a = this.authService.isAuthenticated();
+    console.log('is authenticated: ' + a);
+    return a;
   }
 }

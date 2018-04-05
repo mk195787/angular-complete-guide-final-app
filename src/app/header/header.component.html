@@ -16,7 +16,11 @@
             >Shopping list</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li class="dropdown" appDropdown>
+        <ng-template [ngIf]="!isAuthenticated()">
+          <li><a routerLink="/signup" style="cursor: pointer;">Register</a></li>
+          <li><a routerLink="/signin" style="cursor: pointer;">Sign in</a></li>
+        </ng-template>
+        <li class="dropdown" appDropdown *ngIf="isAuthenticated()">
           <a class="dropdown-toggle" style="cursor: pointer;" role="button">Manage <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a style="cursor: pointer;" (click)="onSave()" >Save data</a></li>

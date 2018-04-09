@@ -1,7 +1,7 @@
-import { AuthService } from './../auth.service';
-import { NgForm } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-import * as firebase from 'firebase';
+import { NgForm } from '@angular/forms';
+
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-signin',

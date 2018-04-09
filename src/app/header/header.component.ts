@@ -1,39 +1,32 @@
-import { AuthService } from './../auth/auth.service';
-import { Recipe } from './../recipies/recipe-list/recipe.model';
-import { RecipiesService } from './../recipies/recipe-list/recipies.service';
-import { DataStorageService } from './../data-storage.service';
-import { Component, OnInit} from '@angular/core';
+import { Component } from '@angular/core';
+import { Response } from '@angular/http';
+
+import { DataStorageService } from '../shared/data-storage.service';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  templateUrl: './header.component.html'
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
   constructor(private dataStorageService: DataStorageService,
-              private recipiesService: RecipiesService,
-              private authService: AuthService) { }
-
-  ngOnInit() {
+              private authService: AuthService) {
   }
 
-  onSave() {
-    this.dataStorageService.storeRecipies(this.recipiesService.getRecipies())
-        .subscribe(o => {
-          console.log(o);
-        });
+  onSaveData() {
+    this.dataStorageService.storeRecipes()
+      .subscribe(
+        (response: Response) => {
+          console.log(response);
+        }
+      );
   }
 
-  onFetch() {
-    this.dataStorageService.fetchRecipies()
-        .subscribe((recipies: Recipe[]) => {
-          this.recipiesService.setRecipies(recipies);
-        });
+  onFetchData() {
+    this.dataStorageService.getRecipes();
   }
 
-  isAuthenticated() {
-    const a = this.authService.isAuthenticated();
-    console.log('is authenticated: ' + a);
-    return a;
+  onLogout() {
+    this.authService.logout();
   }
 }
